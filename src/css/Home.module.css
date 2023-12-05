@@ -1,0 +1,48 @@
+.container{
+    width: 1200px;
+    text-align: left;
+}
+.overlay {
+    position: relative;
+}
+
+.overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    /*background: linear-gradient(to right, rgba(132, 206, 226, 0.8), rgba(52, 140, 184, 0.8));*/
+    background: linear-gradient(to right, rgba(132, 206, 226, 0.5),rgba(132, 206, 226),  rgba(52, 140, 184));
+    /* 원하는 그라데이션 색상으로 수정 */
+    z-index: 2; /* 이미지 위에 나타나도록 설정 */
+}
+.img{
+    width: 100%;
+    height: auto; /* 그라데이션 위에 이미지가 나타나도록 설정 */
+}
+.img_txt{
+    position: absolute;
+    top: 50%; /* 원하는 위치로 조절하세요 */
+    left: 50%; /* 원하는 위치로 조절하세요 */
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.5); /* 투명 배경색 (흰색 투명 배경 예시) */
+    padding: 10px; /* 원하는 패딩 값으로 조절하세요 */
+    color: #000; /* 텍스트 색상 (검은색 예시) */
+    height: 400px;
+}
+.btn{
+    color: grey;
+    background-color: white;
+    border: 0px;
+}
+.container_title{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+h5{
+    font-weight: bold;
+    color: #4b4b4b;
+}

@@ -1,0 +1,48 @@
+h3{
+    margin-top: 30px;
+    margin-left: 10px;
+    text-align: left;
+}
+.container{
+    width: 1150px;
+}
+.nav{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: 450px;
+}
+.nav_color{
+    color: grey;
+}
+
+.card {
+    margin-top: 10px;
+}
+h3{
+    font-weight: bold;
+    color: #4b4b4b;
+}
+.tag{
+    margin-left: 10px;
+}
+.tag_box{
+    display: flex;
+    align-item: center;
+}
+.tag_text{
+    border: 2px solid #84CEE2;
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #84CEE2;
+    font-weight: bold;
+}
+.close_img{
+
+    width: 12px;
+    height: 12px;
+    margin-bottom: 3px;
+    margin-right: 5px;
+}
+.close{
+    cursor: pointer;
+}

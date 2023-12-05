@@ -1,0 +1,107 @@
+.body{
+    background-color: #84CEE2;
+}
+.container {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 뷰포트 높이에 맞게 조절할 수 있습니다. */
+}
+.content{
+    display: block;
+}
+.content_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: white;
+    width: 340px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.form{
+    margin: 35px auto;
+    width: 80%;
+}
+.text{
+    border: 1px solid #cccccc;
+    border-radius: 15px;
+}
+.text_complete{
+    border: 1px solid #cccccc;
+    border-radius: 7px;
+    height: 45px;
+    margin-bottom: 10px;
+}
+.title{
+    text-align: left;
+    margin-top: 25px;
+    font-size: 27px;
+    color: white;
+    display: block;
+}
+.btn_back{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    width: 25%;
+    height: 42px;
+    /*transition: background-color 0.2s ease;*/
+    font-weight: bold;
+    font-size: 27px;
+    text-align: left;
+}
+.btn_next{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: #348CB8;
+    width: 30%;
+    height: 42px;
+    /*transition: background-color 0.2s ease;*/
+    font-weight: bold;
+    font-size: 27px;
+    text-align: right;
+}
+/*.btn_next:hover{*/
+/*    background-color: #348CB8;*/
+/*    color: white;*/
+/*    border: 0px;*/
+/*}*/
+/*.btn_back:hover{*/
+/*    background-color: #348CB8;*/
+/*    color: white;*/
+/*    border: 0px;*/
+/*}*/
+.btn{
+    margin: 10px 10px 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 340px;
+}
+.btn_img{
+    width: auto;
+    height: 22px;
+    margin: 0px 10px;
+}
+.form_complete{
+    text-align: left;
+    padding-bottom: 40px;
+}
+.form_name{
+    font-weight: bold;
+}
+.txt{
+    font-weight: bold;
+    color: grey;
+}
+.text_align{
+    text-align: left;
+}

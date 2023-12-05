@@ -1,0 +1,112 @@
+.img{
+    width: 100%; /* 이미지를 100%로 확대/축소하여 이미지 컨테이너에 맞게 조절 */
+    height: 100%; /* 이미지를 100%로 확대/축소하여 이미지 컨테이너에 맞게 조절 */
+    border-radius: 10px;
+}
+.box{
+    margin-top: 40px;
+    width: 1150px;
+}
+.info_text{
+    margin-top: 10px;
+    text-align: left;
+}
+.txt{
+    text-align: left;
+}
+.user_text{
+    text-align: left;
+}
+.btn_chat{
+    margin-left: 30px;
+    width: 250px;
+    height: 50px;
+    background-color: #84CEE2;
+    color: white;
+    border: 0px;
+    border-radius: 30px;
+}
+.btn_like{
+    margin-left: 10px;
+    background-color: red;
+    color: white;
+    border: 0px;
+    border-radius: 20px;
+    height: 50px;
+    width: 70px;
+}
+.trade{
+    margin-left: 10px;
+    font-size: 17px;
+    color: lightgrey;
+}
+.category{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 17px;
+}
+.title{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.price{
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 35px;
+    font-weight: bold;
+}
+.like{
+    margin-left: 10px;
+    color: grey;
+    margin-top: 30px;
+    font-size: 17px;
+}
+.tag{
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #84CEE2;
+    background-color: white;
+    border: 1px solid #84CEE2;
+    border-radius: 10px;
+    font-size: 17px;
+}
+.tag_box{
+    margin-left: 10px;
+    margin-top: 30px;
+}
+.btn{
+    margin-top: 40px;
+    font-size: 17px;
+}
+.img_box{
+    width: 100%; /* 이미지 컨테이너의 가로폭을 100%로 지정 */
+    height: 410px; /* 이미지 컨테이너의 높이를 원하는 크기로 지정 */
+    overflow: hidden; /* 이미지가 컨테이너를 넘어갈 경우 숨김 처리 */
+}
+.detail_title{
+    border-bottom: 1px solid lightgrey; /* 테두리의 두께와 색상을 설정합니다. */
+    padding-bottom: 15px;
+    padding-left: 5px;
+}
+.detail_txt{
+    margin-left: 5px;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+.won{
+    font-size: 20px;
+    font-weight: normal;
+}
+.user_name{
+    margin: 20px;
+    font-weight: bold;
+}
+.book_text{
+    color: dimgrey;
+    font-size: 14px;
+}
+.book{
+    margin: 15px 7px;
+}
