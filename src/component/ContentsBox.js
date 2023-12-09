@@ -27,7 +27,7 @@ export default function ContentsBox(props){
     return (
         <>
             <Container style={{ overflowX: 'auto' }}>
-                <Row xs={3} md={3} lg={6}>
+                <Row xs={2} md={3} lg={6}>
                     {/* xs: Extra Small, md: Medium, lg: Large */}
                     {_data.map((data) => (
                         <Col className={styles.card}>

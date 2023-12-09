@@ -45,10 +45,10 @@ export default function ProductBoard (){
         <div>
             <Header/>
             <div className="content_body">
-            <Container className={styles.container}>
-                <h3>대여</h3>
+            <Container className={styles.customContainer}>
+                <div className={styles.title}>대여</div>
                 <Row>
-                    <Col xs={2} className={styles.tag}>
+                    <Col xs={4} lg={2} className={styles.tag}>
                         <Form onSubmit={insertTag}>
                             <Form.Control
                                 type="text"
@@ -59,7 +59,7 @@ export default function ProductBoard (){
                             />
                         </Form>
                     </Col>
-                    <Col xs={4} className={styles.tag_box}>
+                    <Col xs={5} lg={7} className={styles.tag_box}>
                         {tag !== '' ? (
                             <span className={styles.tag_text}>
                                   <span className={styles.close} onClick={closeTag}>
@@ -69,7 +69,7 @@ export default function ProductBoard (){
                                 </span>
                         ) : null}
                     </Col>
-                    <Col >
+                    <Col  xs={1} lg={2} className={styles.sort_box}>
                         <SortDropdown selected={selectedSort} onSelect={handleSort} variant="#84CEE2"/>
                     </Col>
                 </Row>

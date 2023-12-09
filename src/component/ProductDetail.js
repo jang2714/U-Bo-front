@@ -7,25 +7,93 @@ import styles from '../css/ProductDetail.module.css';
 import imagelogo from "../img/logo.png";
 import Header from "./Header";
 import useFetch from "../hook/useFetch";
+import img_favorite from "../img/Favorite.png";
+import img_favorite_un from "../img/Favorite_un.png";
+import {useEffect, useState} from "react";
+import { APIURL } from "../config";
 export default function ProductDetail() {
     const {id}  = useParams();
 
     const {data, loading, error} = useFetch(`used/${id}`);
-    const _data = data;
+    const [_data, set_data] = useState(data);
     const categoryindex = ["BOOK","TOOL", "ETC", "HOUSE", "BUY"];
     const categoryText = ["서적", "실습도구","기타", "부동산", "삽니다"];
 
+    const [likeImg, setLikeImg] = useState(false);
+    const [likeNumber, setLikeNumber] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const itemId = {id: id};
+
     const btn_like = () => {
-        alert("죠습니다!");
+
+        setLikeImg(!likeImg);
+        if (!isLoading) {
+            setIsLoading(true);
+            // if(likeImg){
+                fetch(`${APIURL}/like/${id}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(itemId),
+                }).then((res) => {
+                    if (res.ok) {
+                        setIsLoading(false);
+                        return res.text();
+                    } else {
+                        throw new Error("좋아요 실패");
+                    }
+                }).catch(error => {
+                    console.error('Error during fetch:', error);
+                    alert("좋아요 실패!");
+                    setIsLoading(false);
+                });
+                if(likeImg){
+                    setLikeNumber(likeNumber - 1);
+                }else{
+                    setLikeNumber(likeNumber + 1);
+                }
+                //
+                // fetch(`${URL}/used/${id}`,{
+                //     method: 'GET',
+                // }).then((res) => {
+                //     if (!res.ok) {
+                //         throw new Error("Network response was not ok");
+                //     }
+                //     return res.json();
+                // })
+                //     .then((data) => {
+                //         set_data(data);
+                //     })
+                //     .catch((error) => {
+                //         console.error("데이터 가져오기 오류:", error);
+                //     });
+            // }else{
+            //
+            // }
+
+        }
     };
 
+    const handleChat = () => {
+        console.log("채팅하러 가봅시다!!")
+    };
+
+    useEffect(() => {
+        setLikeImg(_data.liked)
+    }, [_data]);
+
+    useEffect(() => {
+        set_data(data);
+        setLikeNumber(_data.likeCount);
+    }, [data]);
 
     return (
         <div>
             <Header/>
             <div className="content_body">
         <Container className={styles.box}>
-            <Row sm={1} md={2}>
+            <Row xs={1} sm={1} md={1} lg={2}>
                 <Col>
                     <Carousel>
                         {_data && _data.images && _data.images.map((image, index) => (
@@ -56,23 +124,26 @@ export default function ProductDetail() {
                         {_data.price} <span className={styles.won}>원</span>
                     </div>
                     <div className={styles.like}>
-                        좋아요 : {_data.likeCount}  조회수 : {_data.viewCount}
+                        좋아요 : {likeNumber}  조회수 : {_data.viewCount}
                     </div>
-                    {_data.major !== "" ?
-                        <div className={styles.tag_box}>
-                        <span className={styles.tag}>
-                            {_data.major}
+                    <div className={styles.tag_box}>
+                        <span className={styles.time_text}>
+                            {_data.timeAgo}
                         </span>
-                        </div> : null
-                    }
+                        {_data.major !== "" ?
+                            <span className={styles.tag}>
+                                {_data.major}
+                            </span> : null
+                        }
+                    </div>
 
                     <div className={styles.btn}>
-                        <button className={styles.btn_like} onClick={btn_like}>좋아요</button>
-                        <Link to={"/chat"}>
-                            <button className={styles.btn_chat}>
+                        <span onClick={btn_like} className={styles.btn_like}>
+                            <img src={likeImg ? img_favorite : img_favorite_un} className={styles.btn_like_img}/>
+                        </span>
+                        <button className={styles.btn_chat} onClick={handleChat}>
                                 채팅하기
-                            </button>
-                        </Link>
+                        </button>
                     </div>
                 </Col>
             </Row>

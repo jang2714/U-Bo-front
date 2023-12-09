@@ -63,8 +63,8 @@ export default function ProductBoard (){
         <div>
             <Header/>
             <div className="content_body">
-            <Container className={styles.container}>
-                <h3>중고거래</h3>
+            <Container className={styles.customContainer}>
+                <div className={styles.title}>중고거래</div>
                 <Nav fill variant="underline" defaultActiveKey="all" className={styles.nav} onSelect={handleCategory}>
                     <Nav.Item>
                         <Nav.Link eventKey="all" className={styles.nav_color}>전체</Nav.Link>
@@ -87,8 +87,8 @@ export default function ProductBoard (){
                 </Nav>
 
                 <div>
-                    <Row>
-                        <Col xs={2} className={styles.tag}>
+                    <Row  className={styles.noMargin}>
+                        <Col xs={4} lg={2} className={styles.tag}>
                             <Form onSubmit={insertTag}>
                                 <Form.Control
                                     type="text"
@@ -99,7 +99,7 @@ export default function ProductBoard (){
                                 />
                             </Form>
                         </Col>
-                        <Col xs={4} className={styles.tag_box}>
+                        <Col xs={5} lg={7} className={styles.tag_box}>
                             {tag !== '' ? (
                                 <span className={styles.tag_text}>
                                   <span className={styles.close} onClick={closeTag}>
@@ -109,7 +109,7 @@ export default function ProductBoard (){
                                 </span>
                             ) : null}
                         </Col>
-                        <Col >
+                        <Col xs={1} lg={2} className={styles.sort_box}>
                             <SortDropdown selected={selectedSort} onSelect={handleSort} variant="#84CEE2"/>
                         </Col>
                     </Row>

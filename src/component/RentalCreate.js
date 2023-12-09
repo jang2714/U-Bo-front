@@ -10,6 +10,7 @@ import {useEffect, useState} from "react";
 import {CloseButton} from 'react-bootstrap';
 import Header from "./Header";
 import CustomCalendar from "./CustomCalendar";
+import { APIURL } from "../config";
 
 export default function ProductCreate(){
     const navigate = useNavigate();
@@ -73,8 +74,6 @@ export default function ProductCreate(){
             "startDate": nowStartDate,
             "endDate": nowEndDate
         }));
-        console.log(productData.startDate);
-        console.log(productData.endDate);
     }
 
 
@@ -103,7 +102,7 @@ export default function ProductCreate(){
             formData.append('startDate', productData.startDate);
             formData.append('endDate', productData.endDate);
 
-            fetch(`http://172.111.115.182:8080/rental/new`, {
+            fetch(`${APIURL}/rental/new`, {
                 method: 'POST',
                 body: formData, // 멀티파트 폼 데이터를 전송
                 // credentials: 'include',
@@ -142,7 +141,7 @@ export default function ProductCreate(){
                                 />
                             </Col>
                             <Col sm={8} className="text-start" style={{ overflowX: 'auto', whiteSpace: 'nowrap' }}>
-                        <span className={styles.img_box}>
+                        <div className={styles.img_box}>
                             {imageSrc && imageSrc.map((image, index) => (
                                 <span key={index} className={styles.img_content}>
                                     <img className={styles.img} src={image} alt={`preview-img-${index}`} />
@@ -152,7 +151,7 @@ export default function ProductCreate(){
                                     />
                                 </span>
                             ))}
-                        </span>
+                        </div>
                             </Col>
                         </Form.Group>
 
@@ -247,7 +246,7 @@ export default function ProductCreate(){
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row} className="mb-4">
-                            <Col sm={{ span: 11, offset: 1 }}>
+                            <Col sm={{ span: 11, offset: 1 }} className={styles.btn_align}>
                                 <Button type="submit" className={styles.btn} onClick={handleClick}>등록하기</Button>
                             </Col>
                         </Form.Group>

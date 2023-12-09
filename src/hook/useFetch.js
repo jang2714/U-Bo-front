@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { APIURL } from "../config";
 
 export default function useFetch(apiEndpoint, method = "GET", body = null) {
     const [data, setData] = useState([]);
@@ -10,9 +11,8 @@ export default function useFetch(apiEndpoint, method = "GET", body = null) {
         setLoading(true);
         setError(null);
 
-        const apiUrl = `http://172.111.115.182:8080/${apiEndpoint}`;
+        const apiUrl = `${APIURL}/${apiEndpoint}`;
         console.log(apiUrl);
-
 
         fetch(apiUrl, {
             method: method,

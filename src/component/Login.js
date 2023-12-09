@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import useFetch from "../hook/useFetch";
+import { APIURL } from "../config";
 export default function Login(){
 
     const navigate = useNavigate();
@@ -51,7 +52,7 @@ export default function Login(){
                     //         // 에러 처리 로직을 추가할 수 있습니다.
                     //     });
 
-                    fetch(`http://172.111.115.182:8080/login`, {
+                    fetch(`${APIURL}/login`, {
                         method: 'POST', // 'GET'에서 'POST'로 변경
                         headers: {
                             'Content-Type': 'application/json', // 헤더에 Content-Type 추가
@@ -135,6 +136,7 @@ export default function Login(){
                                 name="password"
                                 value={user.password}
                                 onChange={handleInsert}
+                                onSubmit={handleLogin}
                             />
                         </FloatingLabel>
                     </div>

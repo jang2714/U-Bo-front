@@ -1,3 +1,12 @@
+.calendar_area{
+    width: 350px;
+}
+@media (min-width: 768px) {
+    .calendar_area{
+        width: 400px;
+    }
+}
+
 .dropdown{
     display: flex;
 }

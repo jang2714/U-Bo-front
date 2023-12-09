@@ -10,6 +10,7 @@ import { CloseButton } from 'react-bootstrap';
 import Header from "./Header";
 import useFetch from "../hook/useFetch";
 import {useEffect, useState} from "react";
+import { APIURL } from "../config";
 
 export default function ProductCreate() {
     const navigate = useNavigate();
@@ -42,11 +43,6 @@ export default function ProductCreate() {
             setProductData({ ...productData, [e.target.name]: e.target.value });
         }
     };
-
-
-
-
-
 
     useEffect(() => {
         // images 배열이 업데이트될 때마다 이미지 업데이트
@@ -86,7 +82,7 @@ export default function ProductCreate() {
             formData.append('description', productData.description);
             formData.append('major', productData.major);
 
-            fetch(`http://172.111.115.182:8080/used/new`, {
+            fetch(`${APIURL}/used/new`, {
                 method: 'POST',
                 body: formData, // 멀티파트 폼 데이터를 전송
                 // credentials: 'include',
@@ -126,7 +122,7 @@ export default function ProductCreate() {
                             />
                         </Col>
                         <Col sm={8} className="text-start" style={{ overflowX: 'auto', whiteSpace: 'nowrap' }}>
-                        <span className={styles.img_box}>
+                        <div className={styles.img_box}>
                             {imageSrc && imageSrc.map((image, index) => (
                                 <span key={index} className={styles.img_content}>
                                     <img className={styles.img} src={image} alt={`preview-img-${index}`} />
@@ -136,7 +132,7 @@ export default function ProductCreate() {
                                     />
                                 </span>
                             ))}
-                        </span>
+                        </div>
                         </Col>
                     </Form.Group>
 
@@ -144,7 +140,7 @@ export default function ProductCreate() {
                         <Form.Label column sm={2}>
                             물품명
                         </Form.Label>
-                        <Col sm={8}>
+                        <Col sm={4}>
                             <Form.Control
                                 type="text"
                                 placeholder=""
@@ -200,122 +196,125 @@ export default function ProductCreate() {
                                     서적상태
                                 </Form.Label>
                                 <Col sm="8" className="text-start">
-                                    <div key={`inline-radio-underline`} className="mb-3">
-                                        <span className={styles.state_txt}>밑줄 흔적</span>
-                                        <Form.Check
-                                            inline
-                                            label="없음"
-                                            name="underlineTrace"
-                                            type="radio"
-                                            id="under_line_1"
-                                        />
-                                        <Form.Check
-                                            inline
-                                            label="연필/샤프"
-                                            name="underlineTrace"
-                                            type="radio"
-                                            id="under_line_2"
-                                        />
-                                        <Form.Check
-                                            inline
-                                            label="볼펜/형광펜"
-                                            name="underlineTrace"
-                                            type="radio"
-                                            id="under_line_3"
-                                        />
+                                    <div className={styles.category_text}>
+                                        <div key={`inline-radio-underline`} className="mb-3">
+                                            <span className={styles.state_txt}>밑줄 흔적</span>
+                                            <Form.Check
+                                                inline
+                                                label="없음"
+                                                name="underlineTrace"
+                                                type="radio"
+                                                id="under_line_1"
+                                            />
+                                            <Form.Check
+                                                inline
+                                                label="연필/샤프"
+                                                name="underlineTrace"
+                                                type="radio"
+                                                id="under_line_2"
+                                            />
+                                            <Form.Check
+                                                inline
+                                                label="볼펜/형광펜"
+                                                name="underlineTrace"
+                                                type="radio"
+                                                id="under_line_3"
+                                            />
+                                        </div>
+                                        <div key={`inline-radio-write`} className="mb-3">
+                                            <span className={styles.state_txt}>필기 흔적</span>
+                                            <Form.Check
+                                                inline
+                                                label="없음"
+                                                name="writeTrace"
+                                                type="radio"
+                                                id="write_1"
+                                            />
+                                            <Form.Check
+                                                inline
+                                                label="연필/샤프"
+                                                name="writeTrace"
+                                                type="radio"
+                                                id="write_2"
+                                            />
+                                            <Form.Check
+                                                inline
+                                                label="볼펜/형광펜"
+                                                name="writeTrace"
+                                                type="radio"
+                                                id="write_3"
+                                            />
+                                        </div>
+                                        <div key={`inline-radio-cover`} className="mb-3">
+                                            <span className={styles.state_txt}>겉표지</span>
+                                            <Form.Check
+                                                inline
+                                                label="없음"
+                                                name="coverCondition"
+                                                type="radio"
+                                                id="cover_1"
+                                            />
+                                            <Form.Check
+                                                inline
+                                                label="있음"
+                                                name="coverCondition"
+                                                type="radio"
+                                                id="cover_2"
+                                            />
+                                        </div>
+                                        <div key={`inline-radio-name`} className="mb-3">
+                                            <span className={styles.state_txt}>이름 기입</span>
+                                            <Form.Check
+                                                inline
+                                                label="없음"
+                                                name="nameWritten"
+                                                type="radio"
+                                                id="name_1"
+                                            />
+                                            <Form.Check
+                                                inline
+                                                label="있음"
+                                                name="nameWritten"
+                                                type="radio"
+                                                id="name_2"
+                                            />
+                                        </div>
+                                        <div key={`inline-radio-discoloration`} className="mb-3">
+                                            <span className={styles.state_txt}>페이지 변색</span>
+                                            <Form.Check
+                                                inline
+                                                label="없음"
+                                                name="pageDiscoloration"
+                                                type="radio"
+                                                id="discoloration_1"
+                                            />
+                                            <Form.Check
+                                                inline
+                                                label="있음"
+                                                name="nameWritten"
+                                                type="radio"
+                                                id="discoloration_2"
+                                            />
+                                        </div>
+                                        <div key={`inline-radio-damage`} className="mb-3">
+                                            <span className={styles.state_txt}>페이지 훼손</span>
+                                            <Form.Check
+                                                inline
+                                                label="없음"
+                                                name="pageDamage"
+                                                type="radio"
+                                                id="damage_1"
+                                            />
+                                            <Form.Check
+                                                inline
+                                                label="있음"
+                                                name="pageDamage"
+                                                type="radio"
+                                                id="damage_2"
+                                            />
+                                        </div>
                                     </div>
-                                    <div key={`inline-radio-write`} className="mb-3">
-                                        <span className={styles.state_txt}>필기 흔적</span>
-                                        <Form.Check
-                                            inline
-                                            label="없음"
-                                            name="writeTrace"
-                                            type="radio"
-                                            id="write_1"
-                                        />
-                                        <Form.Check
-                                            inline
-                                            label="연필/샤프"
-                                            name="writeTrace"
-                                            type="radio"
-                                            id="write_2"
-                                        />
-                                        <Form.Check
-                                            inline
-                                            label="볼펜/형광펜"
-                                            name="writeTrace"
-                                            type="radio"
-                                            id="write_3"
-                                        />
-                                    </div>
-                                    <div key={`inline-radio-cover`} className="mb-3">
-                                        <span className={styles.state_txt}>겉표지</span>
-                                        <Form.Check
-                                            inline
-                                            label="없음"
-                                            name="coverCondition"
-                                            type="radio"
-                                            id="cover_1"
-                                        />
-                                        <Form.Check
-                                            inline
-                                            label="있음"
-                                            name="coverCondition"
-                                            type="radio"
-                                            id="cover_2"
-                                        />
-                                    </div>
-                                    <div key={`inline-radio-name`} className="mb-3">
-                                        <span className={styles.state_txt}>이름 기입</span>
-                                        <Form.Check
-                                            inline
-                                            label="없음"
-                                            name="nameWritten"
-                                            type="radio"
-                                            id="name_1"
-                                        />
-                                        <Form.Check
-                                            inline
-                                            label="있음"
-                                            name="nameWritten"
-                                            type="radio"
-                                            id="name_2"
-                                        />
-                                    </div>
-                                    <div key={`inline-radio-discoloration`} className="mb-3">
-                                        <span className={styles.state_txt}>페이지 변색</span>
-                                        <Form.Check
-                                            inline
-                                            label="없음"
-                                            name="pageDiscoloration"
-                                            type="radio"
-                                            id="discoloration_1"
-                                        />
-                                        <Form.Check
-                                            inline
-                                            label="있음"
-                                            name="nameWritten"
-                                            type="radio"
-                                            id="discoloration_2"
-                                        />
-                                    </div>
-                                    <div key={`inline-radio-damage`} className="mb-3">
-                                        <span className={styles.state_txt}>페이지 훼손</span>
-                                        <Form.Check
-                                            inline
-                                            label="없음"
-                                            name="pageDamage"
-                                            type="radio"
-                                            id="damage_1"
-                                        />
-                                        <Form.Check
-                                            inline
-                                            label="있음"
-                                            name="pageDamage"
-                                            type="radio"
-                                            id="damage_2"
-                                        />
-                                    </div>
+
                                 </Col>
                             </Form.Group>
                         )
@@ -349,7 +348,7 @@ export default function ProductCreate() {
                         </Col>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-4">
-                        <Col sm={{ span: 11, offset: 1 }}>
+                        <Col sm={{ span: 11, offset: 1 }} className={styles.btn_align}>
                             <Button type="submit" className={styles.btn} onClick={handleClick}>등록하기</Button>
                         </Col>
                     </Form.Group>

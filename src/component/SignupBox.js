@@ -12,6 +12,7 @@ import SignupContent1 from "./SignupContent1";
 import SignupContent2 from "./SignupContent2";
 import SignupContent3 from "./SignupContent3";
 import examImg from "../img/hhh.jpeg";
+import { APIURL } from "../config";
 
 const variants = {
     enter: (direction) => {
@@ -77,7 +78,6 @@ export default function SignupBox(){
     const [step, setStep] = useState(1);
     const navigate = useNavigate();
 
-    const url = "http://172.111.115.182:8080/signup";
 
 
 
@@ -91,16 +91,13 @@ export default function SignupBox(){
 
             if (!isLoading) {
                 setIsLoading(true);
-
-
                 // const formData = new FormData();
                 // formData.append('email', userSignSecond.email);
                 // formData.append('password', userSignSecond.password);
                 // formData.append('nickname', userSignSecond.nickname);
                 // formData.append('college', "연세대학교");
                 // formData.append('image', userSignSecond.image[0]); // 이미지 파일 추가
-                setIsLoading(true);
-                // fetch(`http://172.111.115.182:8080/signup`, {
+                // fetch(`${APIURL}/signup`, {
                 //     method: 'POST', // 'GET'에서 'POST'로 변경
                 //     headers: {
                 //         'Content-Type': 'application/json',

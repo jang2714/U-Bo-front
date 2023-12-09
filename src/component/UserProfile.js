@@ -8,6 +8,7 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import useFetch from "../hook/useFetch";
+import { APIURL } from "../config";
 export default function UserProfile({ sideButton, onButtonClick }){
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +36,7 @@ export default function UserProfile({ sideButton, onButtonClick }){
 
         if (!isLoading) {
             setIsLoading(true);
-            fetch(`http://172.111.115.182:8080/user/account`, {
+            fetch(`${APIURL}/user/account`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -92,6 +93,7 @@ export default function UserProfile({ sideButton, onButtonClick }){
                                 aria-describedby="passwordHelpBlock"
                                 value={name}
                                 onChange={handleChange}
+                                className={styles.info_txt}
                             />
                         </div>
                         <div className="p-2">
@@ -103,13 +105,14 @@ export default function UserProfile({ sideButton, onButtonClick }){
                                 value={_data.email}
                                 disabled
                                 readOnly
+                                className={styles.info_txt}
                             />
                         </div>
                     </div>
                 </Stack>
                 </div>
             <div className={styles.btn}>
-                <Stack direction="horizontal" gap={2}>
+                <Stack className={styles.stack}>
                     <div className={styles.btn_save}>
                         <div className={styles.save} onClick={btnSave}>저장하기</div>
                     </div>

@@ -1,16 +1,57 @@
-h3{
-    margin-top: 30px;
-    margin-left: 10px;
+.title{
+    font-size: 22px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: 12px;
+    font-weight: bold;
     text-align: left;
+    color: dimgrey;
 }
-.container{
-    width: 1150px;
+
+.customContainer{
+    /*text-align: left;*/
+    background-size: cover; /* 작은 화면에서 배경을 화면에 맞게 조절 */
+    background-position: center; /* 배경 이미지 중앙에 위치 */
 }
 .nav{
     margin-left: 10px;
     margin-bottom: 10px;
-    width: 450px;
+    width: 350px;
+    font-size: 15px;
 }
+.tag_box{
+    display: flex;
+    align-item: center;
+    text-align: left;
+    margin-left: -17px;
+}
+.sort_box{
+    margin-left: -17px;
+}
+/* 스타일 시트에 추가 */
+@media (min-width: 768px) {
+    .customContainer {
+        background-size: cover; /* 작은 화면에서 배경을 화면에 맞게 조절 */
+        background-position: center; /* 배경 이미지 중앙에 위치 */
+        width: 1200px;
+    }
+    .nav{
+        width: 450px;
+    }
+    .title{
+        font-size: 28px;
+        margin-top: 25px;
+        margin-bottom: 5px;
+        margin-left: 15px;
+    }
+    .tag_box{
+        margin-left: 0px;
+    }
+    .sort_box{
+        margin-left: 0px;
+    }
+}
+
 .nav_color{
     color: grey;
 }
@@ -25,10 +66,7 @@ h3{
 .tag{
     margin-left: 10px;
 }
-.tag_box{
-    display: flex;
-    align-item: center;
-}
+
 .tag_text{
     border: 2px solid #84CEE2;
     padding: 5px 10px;

@@ -8,7 +8,10 @@ import imagelogo from "../img/logo.png";
 import Header from "./Header";
 import useFetch from "../hook/useFetch";
 import CustomCalendar from "./CustomCalendar";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import img_favorite from "../img/Favorite.png";
+import img_favorite_un from "../img/Favorite_un.png";
+import {APIURL} from "../config";
 export default function RentalDetail() {
     const {id} = useParams();
 
@@ -19,9 +22,39 @@ export default function RentalDetail() {
     const {data, loading, error} = useFetch(`rental/${id}`);
     const _data = data;
 
+    const [likeImg, setLikeImg] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const itemId = {id: id};
 
     const btn_like = () => {
-        alert(`죠습니다!`);
+        setLikeImg(!likeImg);
+
+        if (!isLoading) {
+            setIsLoading(true);
+            // if(likeImg){
+            fetch(`${APIURL}/like/${id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(itemId),
+            }).then((res) => {
+                if (res.ok) {
+                    setIsLoading(false);
+                    return res.text();
+                } else {
+                    throw new Error("좋아요 실패");
+                }
+            }).catch(error => {
+                console.error('Error during fetch:', error);
+                alert("좋아요 실패!");
+                setIsLoading(false);
+            });
+            // }else{
+            //
+            // }
+
+        }
     };
 
     const handleSelectedDate = (nowStartDate, nowEndDate) => {
@@ -33,6 +66,10 @@ export default function RentalDetail() {
         console.log(productData.startDate);
         console.log(productData.endDate);
     }
+
+    useEffect(() => {
+        setLikeImg(_data.liked)
+    }, [_data]);
 
 
         return (
@@ -69,13 +106,16 @@ export default function RentalDetail() {
                                     좋아요 : {_data.likeCount} 조회수 : {_data.viewCount}
                                 </div>
 
-                                {_data.major !== "" ?
-                                    <div className={styles.tag_box}>
-                                    <span className={styles.tag}>
-                                        {_data.major}
+                                <div className={styles.tag_box}>
+                                    <span className={styles.time_text}>
+                                        {_data.timeAgo}
                                     </span>
-                                    </div> : null
-                                }
+                                            {_data.major !== "" ?
+                                                <span className={styles.tag}>
+                                            {_data.major}
+                                        </span> : null
+                                                }
+                                </div>
                                 <div className={styles.date}>
                                     <span>
                                     대여 가능한 날짜 :
@@ -93,7 +133,9 @@ export default function RentalDetail() {
 
                                 <CustomCalendar onSelectDate={handleSelectedDate} className={styles.calendar}/>
                                 <div className={styles.btn}>
-                                    <button className={styles.btn_like} onClick={btn_like}>좋아요</button>
+                                    <span onClick={btn_like} className={styles.btn_like}>
+                                        <img src={likeImg ? img_favorite : img_favorite_un} className={styles.btn_like_img}/>
+                                    </span>
                                     <Link to={"/chat"}>
                                         <button className={styles.btn_chat}>
                                             채팅하기

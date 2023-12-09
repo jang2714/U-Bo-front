@@ -1,6 +1,72 @@
+
 .container{
-    width: 900px;
+    text-align: left;
 }
+.custom_file_input{
+    width: 50px;
+    height:50px;
+}
+.img{
+    width: 100px;
+    height: 100px;
+}
+.img_box{
+    height: 100px;
+}
+.custom_file_input::before {
+    content: '';
+    background-image: url('../img/camera.png'); /* 이미지 경로 설정 */
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    /*color: #fff;*/
+    /*background-color: #007bff;*/
+    /*border-color: #007bff;*/
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+.btn_align{
+    text-align: center;
+}
+.calendar{
+    width: 100px;
+}
+@media (min-width: 768px) {
+    .container {
+        width: 900px;
+        text-align: center;
+    }
+    .custom_file_input {
+        width: 150px;
+        height: 150px;
+        color: transparent;
+        cursor: pointer;
+    }
+    .img{
+        width: 150px;
+        height: 150px;
+        border-right: 5px;
+    }
+    .custom_file_input::before {
+        content: '';
+        background-image: url('../img/camera.png'); /* 이미지 경로 설정 */
+        background-size: cover;
+        width: 150px;
+        height: 150px;
+        /*color: #fff;*/
+        /*background-color: #007bff;*/
+        /*border-color: #007bff;*/
+        border-radius: 5px;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .img_box{
+        height: 150px;
+    }
+
+}
+
 .text_detail{
     text-align: left;
 }
@@ -17,43 +83,15 @@
 /* styles.css 또는 원하는 파일에 추가 */
 
 /* 파일 업로드 버튼을 이미지로 스타일링 */
-.custom_file_input {
-    width: 150px;
-    height: 150px;
-    color: transparent;
-    cursor: pointer;
-}
 
 .custom_file_input::-webkit-file-upload-button {
     visibility: hidden;
 }
 
-.custom_file_input::before {
-    content: '';
-    background-image: url('../img/camera.png'); /* 이미지 경로 설정 */
-    background-size: cover;
-    width: 150px;
-    height: 150px;
-    /*color: #fff;*/
-    /*background-color: #007bff;*/
-    /*border-color: #007bff;*/
-    /*padding: 6px 10px;*/
-    border-radius: 5px;
-    display: inline-block;
-    cursor: pointer;
-}
-
 .custom_file_input:hover::before {
     background-color: #0056b3;
 }
-.img{
-    width: 150px;
-    height: 150px;
-    border-right: 5px;
-}
-.img_box{
-    margin-right: 10px;
-}
+
 .img_close_btn{
     position: absolute;
     top: 0;

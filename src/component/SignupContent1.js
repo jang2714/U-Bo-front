@@ -20,8 +20,6 @@ export default function SignupContent1({onUpdateUserSign}){
         //     console.log(file instanceof File);
         //     console.log(file)
         // } else {
-        //
-        // }
         setUserFirst({ ...userFirst, [data.target.name]: data.target.value });
         onUpdateUserSign({ ...userFirst, [data.target.name]: data.target.value });
     };

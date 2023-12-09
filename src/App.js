@@ -17,7 +17,6 @@ import FindPasswd from "./component/FindPasswd";
 import Search from "./component/Search";
 import RentalCreate from "./component/RentalCreate";
 import RentalDetail from "./component/RentalDetail";
-import ChatRoom from "./component/ChatRoom";
 
 function App() {
 
@@ -39,7 +38,7 @@ function App() {
                         <Route path="/rental_board" element={<RendtalBoard />} />
                         <Route path="/rental_board/:id" element={<RentalDetail/>}/>
                         <Route path="/rental_create" element={<RentalCreate/>}/>
-                        <Route path="/chat" element={<ChatRoom/>} />
+                        <Route path="/chat" element={<Chat/>}/>
                         <Route path="/mypage" element={<Mypage />} />
                         <Route path="/product_create" element={<ProductCreate />} />
                     </Routes>

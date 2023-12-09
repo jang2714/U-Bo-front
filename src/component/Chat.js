@@ -7,7 +7,7 @@ import maru from "../img/maru.JPG";
 import Button from "react-bootstrap/Button";
 import {useState} from "react";
 import ChatBtn from "./ChatBtn";
-import Chating from "./Chating";
+// import ChatRoom from "./ChatRoom";
 import Header from "./Header";
 
 export default function Chat(){
@@ -48,7 +48,7 @@ export default function Chat(){
                     <Col>
                         {selectedAction ?
                             <div>
-                                <Chating user={selectedData[0]} index={selectedId}/>
+                                {/*<ChatRoom apply_id={selectedId}/>*/}
                             </div>
                             :
                             <div className={styles.chating_box}>

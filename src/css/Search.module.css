@@ -1,12 +1,16 @@
+.container{
+}
+@media (min-width: 768px) {
+    .container{
+        width: 1200px;
+    }
+}
 h3{
     margin-top: 30px;
     margin-left: 10px;
     text-align: left;
     font-weight: bold;
     color: dimgrey;
-}
-.container{
-    width: 1150px;
 }
 .card {
     margin-top: 10px;

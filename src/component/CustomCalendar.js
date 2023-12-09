@@ -61,10 +61,12 @@ export default function CustomCalendar ({ onSelectDate }) {
                 show={isStartOpen}
                 variant="outline-secondary"
             >
-                <Calendar
-                    onChange={handleStartDateChange}
-                    value={startDate}
-                    formatDay={(locale, date) => moment(date).format("DD")}/>
+                <div className={styles.calendar_area}>
+                    <Calendar
+                        onChange={handleStartDateChange}
+                        value={startDate}
+                        formatDay={(locale, date) => moment(date).format("DD")}/>
+                </div>
 
             </DropdownButton>
             </span>
@@ -79,10 +81,13 @@ export default function CustomCalendar ({ onSelectDate }) {
                 show={isEndOpen}
                 variant="outline-secondary"
             >
-                <Calendar
-                    onChange={handleEndDateChange}
-                    value={endDate}
-                    formatDay={(locale, date) => moment(date).format("DD")}/>
+                <div className={styles.calendar_area}>
+                     <Calendar
+                         onChange={handleEndDateChange}
+                         value={endDate}
+                         formatDay={(locale, date) => moment(date).format("DD")}/>
+
+                </div>
 
             </DropdownButton>
                  </span>

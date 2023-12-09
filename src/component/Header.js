@@ -36,11 +36,6 @@ export default function Header() {
             #title{
                 margin-bottom: 10px
             }
-            #link-left{
-                margin-left: 10px;
-                margin-right: 10px;
-                font-size: 18px;
-            }
             #nav{
                 width: 1150px;
             }
@@ -74,8 +69,12 @@ export default function Header() {
                             </Offcanvas.Header>
                             <Offcanvas.Body>
                                 <Nav className="me-auto flex-grow-1 pe-3">
-                                    <Nav.Link href="/product_board" id="link-left">중고거래</Nav.Link>
-                                    <Nav.Link href="/rental_board" id="link-left">대여</Nav.Link>
+                                    <span className={styles.link_left}>
+                                        <Nav.Link href="/product_board" id="link-left">중고거래</Nav.Link>
+                                    </span>
+                                    <span className={styles.link_left}>
+                                        <Nav.Link href="/rental_board" id="link-left">대여</Nav.Link>
+                                    </span>
                                 </Nav>
                                 <Nav className="justify-content-end flex-grow-1 pe-3">
                                     <Form className="d-flex" id="search" onSubmit={handleSearch}>
