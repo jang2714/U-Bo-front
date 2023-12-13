@@ -13,6 +13,24 @@
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
+
+.btn_findpw{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: white;
+    color: #84CEE2;
+    border: 1px solid #84CEE2;
+    border-radius: 25px;
+    width: 48%;
+    height: 42px;
+    margin: auto;
+    transition: background-color 0.2s ease;
+    font-weight: bold;
+    font-size: 14px;
+}
 @media (min-width: 768px) {
     .container {
         width: 500px;
@@ -29,6 +47,23 @@
         height: 550px;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    .btn_findpw{
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: white;
+        color: #84CEE2;
+        border: 1px solid #84CEE2;
+        border-radius: 25px;
+        width: 48%;
+        height: 42px;
+        margin: auto;
+        transition: background-color 0.2s ease;
+        font-weight: bold;
+        font-size: 16px;
     }
 }
 
@@ -81,22 +116,6 @@
 .btn_login:hover{
      background-color: #348CB8;
  }
-.btn_findpw{
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    background-color: white;
-    color: #84CEE2;
-    border: 1px solid #84CEE2;
-    border-radius: 25px;
-    width: 48%;
-    height: 42px;
-    margin: auto;
-    transition: background-color 0.2s ease;
-    font-weight: bold;
-}
 .btn_findpw:hover{
     background-color: #348CB8;
     color: white;
